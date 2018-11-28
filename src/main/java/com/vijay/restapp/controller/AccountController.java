@@ -1,9 +1,5 @@
 package com.vijay.restapp.controller;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
-
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.vijay.restapp.model.Account;
 import com.vijay.restapp.service.AccountService;
@@ -34,12 +32,12 @@ public class AccountController {
 		return accountService.getAccount(id);
 	}
 	
-	@PostMapping("/accounts/")
-	public Account getAccount(@RequestBody Account account) {
+	@PostMapping("/accounts")
+	public Account addAccount(@RequestBody Account account) {
 		return accountService.addAccount(account);
 	}
 	
-	@PutMapping("/accounts/")
+	@PutMapping("/accounts")
 	public Map<String, String> updateAccount(@RequestBody Account account) {
 		return accountService.updateAccount(account);
 	}
