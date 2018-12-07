@@ -1,5 +1,9 @@
 package com.vijay.restapp.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
 public class Account {
 	private Long id;
 	private String firstName;
@@ -37,4 +41,10 @@ public class Account {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
+
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", firstName=" + firstName + ", secondName=" + secondName + ", accountNumber="
+				+ accountNumber + "]";
+	}	
 }
